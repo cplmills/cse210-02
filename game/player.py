@@ -1,4 +1,6 @@
-class Director:
+from game.card import Card
+
+class Player:
     """ A person who directs the game.
     
     The responsibility of the Director is to control the flow of the game
@@ -14,11 +16,14 @@ class Director:
         """ Constructor. 
         Args: self (Director): an instance of Director.
         """
-
         self.is_playing = True
-        self.score = 0
-        self.total_score = 0
-
+        self.score = 10
+        # self.total_score = 0
+        self.card = Card()
+        self.lastCard = self.card
+        self.highlow = 0
+        self.card.drawer()
+ 
     def start_game(self):
         """ starts the game by running the main game loop.
         Args:
@@ -28,15 +33,17 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
+            if not self.is_playing:
+                print(f'Your final score is {self.score}')
+                return 
 
     def get_inputs(self):
         """Ask the user if they want to guess higher or lower.
-
         Args:
             self (Director): An instance of Director.
         """
-        highlow = int(input("Higher (1) or Lower (0)"))
-        self.is_playing = (highlow == 1 or highlow == 0)
+        self.card.show()
+        self.highlow = int(input("Higher (1) or Lower (0): "))
        
     def do_updates(self):
         """Updates the player's score.
@@ -44,12 +51,17 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if not self.is_playing:
-            return 
+        self.lastCard = self.card.value
+        self.card.drawer()
+        self.card.show()
 
-        card.drawer()
-        self.score += card.points 
-        self.total_score += self.score
+        if self.highlow == 1 and self.lastCard < self.card.value:
+            self.score += 100
+        else:
+            self.score -= 75
+
+        if self.score <= 0:
+            self.is_playing = False
 
     def do_outputs(self):
         """Displays the card and the score. Also asks the player if they want to go again. 
@@ -57,13 +69,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if not self.is_playing:
-            return
-        
-        values = ""
-        
-        card.show()
-
-        print(f"Card is a: {values}")
-        print(f"Your score is: {self.total_score}\n")
-        self.is_playing == (self.score > 0)       
+              
+        print(f"Your score is: {self.score}\n")
+        # self.is_playing == (self.score > 0)  
+        if self.is_playing:
+            self.is_playing = True if input("Play again? [y/n]: ") == "y" else False     
