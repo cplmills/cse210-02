@@ -3,7 +3,7 @@ from game.card import Card
 class Player:
     """ A person who directs the game.
     
-    The responsibility of the Director is to control the flow of the game
+    The responsibility of the player is to control the flow of the game
 
     Attributes:
         is_playing (boolean): whether the game is currently playing
@@ -19,7 +19,6 @@ class Player:
         """
         self.is_playing = True
         self.score = 300
-        # self.total_score = 0
         self.card = Card()
         self.lastCard = self.card
         self.highlow = 0
