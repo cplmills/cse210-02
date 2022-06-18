@@ -55,7 +55,7 @@ class Player:
         self.card.drawer()
         self.card.show()
 
-        if self.highlow == 1 and self.lastCard < self.card.value:
+        if (self.highlow == 1 and self.lastCard < self.card.value) or (self.highlow == 0 and self.lastCard > self.card.value):
             self.score += 100
         else:
             self.score -= 75
