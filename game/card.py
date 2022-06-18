@@ -16,8 +16,8 @@ class Card:
         """ Drawer a new card from the deck and assign a value between 1 to 13 inclusive"""
         self.value = random.randint(1,13)
 
-    def show(self):
+    def show(self, message):
         """ Display the current card on the screen"""
-        print(f"The card is: {self.value}")
+        print(f"{message}: {self.value}")
 
         

@@ -18,7 +18,7 @@ class Player:
         Args: self (Director): an instance of Director.
         """
         self.is_playing = True
-        self.score = 10
+        self.score = 300
         # self.total_score = 0
         self.card = Card()
         self.lastCard = self.card
@@ -43,7 +43,7 @@ class Player:
         Args:
             self (Player): An instance of Player.
         """
-        self.card.show()
+        self.card.show("The current card is a")
         self.highlow = int(input("Higher (1) or Lower (0): "))
        
     def do_updates(self):
@@ -54,7 +54,7 @@ class Player:
         """
         self.lastCard = self.card.value
         self.card.drawer()
-        self.card.show()
+        self.card.show("You drew a ")
 
         if (self.highlow == 1 and self.lastCard < self.card.value) or (self.highlow == 0 and self.lastCard > self.card.value):
             self.score += 100
