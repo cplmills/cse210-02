@@ -11,12 +11,13 @@ class Card:
 
     def __init__(self):
         self.value = 0
-        # self.points = 0
 
     def drawer(self):
+        """ Drawer a new card from the deck and assign a value between 1 to 13 inclusive"""
         self.value = random.randint(1,13)
 
     def show(self):
+        """ Display the current card on the screen"""
         print(f"The card is: {self.value}")
 
         

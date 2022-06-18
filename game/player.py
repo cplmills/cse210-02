@@ -8,8 +8,9 @@ class Player:
     Attributes:
         is_playing (boolean): whether the game is currently playing
         score (int): the score for the current round of play
-        total_score (int): the total score for the entire game
-        current_guess (int): the current guess of higher (1) or Lower(0)
+        card (obj): the current card being played
+        lastCard (int): the previous card played
+        highlow (int): 1 if the player guesses higher, 0 if they guess lower
     """
 
     def __init__(self):
@@ -27,7 +28,7 @@ class Player:
     def start_game(self):
         """ starts the game by running the main game loop.
         Args:
-            self (Director): an instance of Director.
+            self (Player): an instance of Player.
         """
         while self.is_playing:
             self.get_inputs()
@@ -40,7 +41,7 @@ class Player:
     def get_inputs(self):
         """Ask the user if they want to guess higher or lower.
         Args:
-            self (Director): An instance of Director.
+            self (Player): An instance of Player.
         """
         self.card.show()
         self.highlow = int(input("Higher (1) or Lower (0): "))
@@ -49,7 +50,7 @@ class Player:
         """Updates the player's score.
 
         Args:
-            self (Director): An instance of Director.
+            self (Player): An instance of Player.
         """
         self.lastCard = self.card.value
         self.card.drawer()
@@ -67,7 +68,7 @@ class Player:
         """Displays the card and the score. Also asks the player if they want to go again. 
 
         Args:
-            self (Director): An instance of Director.
+            self (Player): An instance of Player.
         """
               
         print(f"Your score is: {self.score}\n")
