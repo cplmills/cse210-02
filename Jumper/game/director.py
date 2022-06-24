@@ -39,7 +39,7 @@ class Director:
             self._do_outputs()
 
     def _get_inputs(self):
-        """Moves the seeker to a new location.
+        """asks the player to make a guess.
 
         Args:
             self (Director): An instance of Director.
