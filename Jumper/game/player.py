@@ -19,7 +19,6 @@ class Player:
     def __init__(self):
         self._isPlaying = True
         self._guessedLetter = ''
-        # self._guessString = ''
         self._badGuesses = 0
 
     def getIsPlaying(self):
@@ -30,6 +29,7 @@ class Player:
 
     def guessLetter(self):
         self._guessedLetter = ''
+        # use while loop to ensure that the guess in an alphanumeric character
         while not self._guessedLetter.isalpha():
             self._guessedLetter = input('Please Guess a Letter [a-z]').lower()
             print()
