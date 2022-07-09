@@ -81,3 +81,6 @@ class ControlActorsAction(Action):
         if key_down:
             snake = cast.get_nth_actor("snakes", player_no)
             snake.turn_head(self._direction)
+            snake.grow_tail(1)
+            points = cast.get_first_actor("scores")
+            points.add_points(player_no, 1)

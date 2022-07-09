@@ -25,5 +25,6 @@ class Score(Actor):
         """
         player -= 1
         self._points[player] += points
-        self.set_text(f"Player 1 Score: {self._points[0]}      -      Player 2 Points: {self._points[1]}")
+        
+        self.set_text(f"Player 1 Score: {self._points[0]}                                      Player 2 Points: {self._points[1]}")
 

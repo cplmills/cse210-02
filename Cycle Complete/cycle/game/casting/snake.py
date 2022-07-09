@@ -56,14 +56,17 @@ class Snake(Actor):
     
     def _prepare_body(self, player_no):
 
-        x = int(constants.MAX_X / 2) * player_no
-        y = int(constants.MAX_Y / 2) 
+        # x = int(constants.MAX_X / 2) * player_no
+        # y = int(constants.MAX_Y / 2) 
+
+        x = 150 if player_no == 1 else 750
+        y = 120
 
         # generate a new random body color
         body_color = Color(randint(1,255), randint(1,255), randint(1,255), 255)
         for i in range(constants.SNAKE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
+            position = Point(x, y - i * constants.CELL_SIZE)
+            velocity = Point(0, 1 * constants.CELL_SIZE)
             text = "8" if i == 0 else "#"
             # color = constants.YELLOW if i == 0 else constants.GREEN
             
