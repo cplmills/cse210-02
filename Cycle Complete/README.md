@@ -5,7 +5,7 @@ on a simulated terminal, with a textual interface.
 ## The Rules
 * Collect food (@) to make your snake longer.
 * Collect bonus gems (*) to make your opponent harder for them to see and make your snake easier to see.
-* Collecting food whilst your visibility is low will give you new body parts that are easier to see, until another gem is collected by wither player.
+* Collecting food whilst your visibility is low will give you new body parts that are easier to see, until another gem is collected by either player.
 * Head to head impacts will result in a tie
 * Run into another player and you will loose the game
 * Run into yourself and you will loose the game.
